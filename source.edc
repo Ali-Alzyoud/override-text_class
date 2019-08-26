@@ -1,0 +1,61 @@
+// compile: edje_cc source.edc
+collections {
+   styles 
+   {
+      style 
+      { 
+         name: "text_style";
+         base: "font=Sans font_size=10 color=#00FF00 warp=word text_class=test_class";
+         tag: "br" "\n";
+         tag: "ps" "ps";
+         tag: "tab" "\t";
+         tag: "b" "+ font_weight=Bold";
+      }
+   }
+   group {
+      name: "my_group";
+      parts {
+         part 
+         { 
+            name: "textblock";
+            type: TEXTBLOCK;
+            scale: 1;
+            entry_mode: NONE;
+            effect: OUTLINE_SHADOW;
+            description 
+            { 
+               state: "default" 0.0;
+               rel1.relative: 0.0 0.0;
+               rel2.relative: 0.5 0.5;
+               text 
+               {
+                  style: "text_style";
+                  align: 0.0 0.0;
+                  text: "TB";
+               }
+            }
+         }
+         part 
+         { 
+            name: "text";
+            type: TEXT;
+            scale: 1;
+            entry_mode: NONE;
+            effect: OUTLINE_SHADOW;
+            description 
+            { 
+               state: "default" 0.0;
+               rel1.relative: 0.5 0.5;
+               rel2.relative: 1.0 1.0;
+               text 
+               {
+                  font: sans;
+                  size: 10;
+                  text: "T";
+                  text_class: "test_class";
+               }
+            }
+         }
+      }
+   }
+}
